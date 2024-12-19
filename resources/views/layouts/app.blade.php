@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-[#ddd] pt-20">
-<body>
+  @include('layouts.header')
 
   <main class="container mx-auto px-5">
 
@@ -18,6 +18,7 @@
 
   </main>
 
+  @include('layouts.footer')
 </body>
 
 </html>
