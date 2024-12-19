@@ -3,6 +3,7 @@
 @section('content')
   <div class="w-full flex justify-between">
     <h1 class="text-4xl font-bold my-8">Filmes Populares</h1>
+    <x-search-input />
   </div>
 
   <x-movie-card :movies="$movies" />
