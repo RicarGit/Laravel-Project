@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --header-height: 5rem;
+  }
+}
+
+@layer utilities {
+  .header-height {
+    height: var(--header-height);
+  }
+
+  .header-height-remove {
+    height: calc(100vh - var(--header-height) - 112px);
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    color: #111;
+  }
+}
