@@ -39,4 +39,16 @@ class TMDBService {
     return $response->json();
   }
 
+  public function getMovieDetails(int $movieId) {
+    $response = Http::withHeaders([
+      'Authorization' => 'Bearer ' . $this->getApiToken(),
+      'Accept' => 'application/json',
+    ])->get($this->getBaseUrl() . "/movie/{$movieId}?language=pt-BR");
+
+    if ($response->failed()) {
+      throw new \Exception('Erro ao buscar detalhes do filme.');
+    }
+
+    return $response->json();
+  }
 }
