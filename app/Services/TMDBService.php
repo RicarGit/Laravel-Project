@@ -25,12 +25,14 @@ class TMDBService {
     return $this->apiToken;
   }
 
-  public function getMovies(string $movieFilter = 'popular', int $page = 1) {
+  public function getMovies(string $movieFilter, string $page) {
+    $urlWithFilters = "/movie/$movieFilter?language=pt-BR&page=$page";
+
     $response = Http::withHeaders([
       'Authorization' => 'Bearer ' . $this->getApiToken(),
       'accept' => 'application/json',
     ])
-      ->get($this->getBaseUrl() . "/movie/$movieFilter?language=pt-BR&page=$page");
+      ->get($this->getBaseUrl() . $urlWithFilters);
 
     if ($response->failed()) {
       throw new \Exception('Ocorreu um erro, tente novamente mais tarde.');
