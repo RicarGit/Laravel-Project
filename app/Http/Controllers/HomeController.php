@@ -13,10 +13,8 @@ class HomeController extends Controller {
   }
 
   public function index(Request $request) {
-  public function index() {
-    $movies = $this->tmdbService->getMovies();
+    $limitedApiTotalPages = 500;
 
-    return view('home', ['movies' => $movies['results'] ?? []]);
     $filters = [
       'popular' => 'Populares',
       'top_rated' => 'Mais Votados',
@@ -39,6 +37,13 @@ class HomeController extends Controller {
 
     $genres = $this->tmdbService->getMovieGenres();
 
+    $totalPages = $movies['total_pages'];
+    $totalResults = $movies['total_results'];
+
+    if ($totalPages > $limitedApiTotalPages) {
+      $totalPages = $limitedApiTotalPages;
+    }
+
     return view(
       'home',
       [
@@ -48,6 +53,9 @@ class HomeController extends Controller {
         'genres' => $genres,
         'genreName' => $genreName,
         'movieName' => $movieName,
+        'currentPage' => $currentPage,
+        'totalPages' => $totalPages,
+        'totalResults' => $totalResults
       ]
     );
   }
