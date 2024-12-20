@@ -16,5 +16,17 @@ class HomeController extends Controller {
     $movies = $this->tmdbService->getMovies();
 
     return view('home', ['movies' => $movies['results'] ?? []]);
+    $genreName = $request->query('genre', '');
+    $movieName = $request->query('movieName', '');
+    $genres = $this->tmdbService->getMovieGenres();
+
+    return view(
+      'home',
+      [
+        'movies' => $movies['results'] ?? [],
+        'genres' => $genres,
+        'genreName' => $genreName,
+      ]
+    );
   }
 }
