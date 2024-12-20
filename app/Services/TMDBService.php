@@ -67,4 +67,16 @@ class TMDBService {
     return $response->json()['genres'] ?? [];
   }
 
+  public function getMoviesByGenre(string $genreName, string $page) {
+    $response = Http::withHeaders([
+      'Authorization' => 'Bearer ' . $this->getApiToken(),
+      'accept' => 'application/json',
+    ])->get($this->getBaseUrl() . "/discover/movie?language=pt-BR&page=$page&with_genres=$genreName");
+
+    if ($response->failed()) {
+      throw new \Exception('Erro ao buscar filmes por gênero.');
+    }
+
+    return $response->json();
+  }
 }
