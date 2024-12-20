@@ -6,9 +6,9 @@
   <input
     class="w-72 rounded-md border border-gray-300 p-2"
     type="text"
-    name="search"
-    placeholder="Buscar filmes..."
-    value=""
+    name="movieName"
+    placeholder="Digite o nome do filme..."
+    value="{{ $movieName ?? '' }}"
   />
   <button type="submit" class="rounded bg-blue-500 p-2 font-semibold uppercase text-white">Buscar</button>
 </form>
