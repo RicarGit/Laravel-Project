@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="flex w-full justify-between">
+    <h1 class="my-8 text-4xl font-bold">{{ $filters[$movieFilter] }}</h1>
 
     <x-filters>
       <x-movie-filter :movieFilter="$movieFilter" :filters="$filters" />
