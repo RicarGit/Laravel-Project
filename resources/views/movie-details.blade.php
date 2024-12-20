@@ -2,6 +2,8 @@
 
 @section('content')
   <div class="header-height-remove">
+    <a href="{{ url()->previous() }}" class="mt-3 inline-block rounded bg-gray-600 px-3 py-2 text-center text-white">&larr;
+      Voltar</a>
     <h1 class="py-8 text-4xl font-bold">{{ $movie['title'] }}</h1>
 
     <div class="flex flex-col gap-5 md:flex-row">
