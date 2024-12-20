@@ -6,6 +6,8 @@
       <x-movie-filter :movieFilter="$movieFilter" :filters="$filters" />
       <x-movie-filter-genre :genres="$genres" :genreName="$genreName" />
     </x-filters>
+
+    <x-search-input :movieName="$movieName" />
   </div>
 
   <x-movie-pagination
