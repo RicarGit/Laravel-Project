@@ -8,5 +8,16 @@
     </x-filters>
   </div>
 
-  <x-movie-card :movies="$movies" />
+  <x-movie-pagination
+    :movieFilter="$movieFilter"
+    :currentPage="$currentPage"
+    :totalPages="$totalPages"
+  />
+  <x-movie-card :movies=$movies />
+
+  <x-movie-pagination
+    :movieFilter="$movieFilter"
+    :currentPage="$currentPage"
+    :totalPages="$totalPages"
+  />
 @endsection
