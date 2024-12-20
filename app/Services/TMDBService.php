@@ -79,4 +79,17 @@ class TMDBService {
 
     return $response->json();
   }
+
+  public function searchMoviesByName(string $movieName, string $page) {
+    $response = Http::withHeaders([
+      'Authorization' => 'Bearer ' . $this->getApiToken(),
+      'accept' => 'application/json',
+    ])->get($this->getBaseUrl() . "/search/movie?language=pt-BR&query=" . urlencode($movieName) . "&page=$page");
+
+    if ($response->failed()) {
+      throw new \Exception('Erro ao buscar filmes pelo nome.');
+    }
+
+    return $response->json();
+  }
 }
