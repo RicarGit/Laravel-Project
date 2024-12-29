@@ -4,10 +4,10 @@
   <div class="flex w-full justify-between">
     <h1 class="my-8 text-4xl font-bold">{{ $filters[$movieFilter] }}</h1>
 
-    <x-filters>
+    <x-filters-nav>
       <x-movie-filter :movieFilter="$movieFilter" :filters="$filters" />
       <x-movie-filter-genre :genres="$genres" :genreName="$genreName" />
-    </x-filters>
+    </x-filters-nav>
 
     <x-search-input :movieName="$movieName" />
   </div>
