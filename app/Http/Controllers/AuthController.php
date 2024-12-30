@@ -9,4 +9,8 @@ class AuthController extends Controller {
     return \view('login');
   }
 
+  public function signUpForm() {
+    return \view('sign-up');
+  }
+
 }

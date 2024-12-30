@@ -10,3 +10,5 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/movie/{id}', [MovieDetailsController::class, 'movieDetails'])->name('details');
 
 Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm');
+
+Route::get('/sign-up', [AuthController::class, 'signUpForm'])->name('signUpForm');
